@@ -9,61 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        .region-map {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin: 2rem 0;
-            justify-content: center;
-        }
-        .region-card {
-            background: rgba(10, 20, 30, 0.7);
-            border-left: 4px solid var(--accent-blue);
-            padding: 1.2rem;
-            border-radius: 0 8px 8px 0;
-            flex: 1 1 250px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(100, 200, 255, 0.2);
-            border-left-width: 4px;
-        }
-        .region-card h3 {
-            color: var(--accent-blue);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .region-card h3 i {
-            font-size: 1.2rem;
-            width: 1.5rem;
-            color: var(--accent-gold);
-        }
-        .anomaly-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .anomaly-item {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid #3a506b;
-            padding: 1rem;
-            border-radius: 8px;
-        }
-        .anomaly-item h4 {
-            color: var(--accent-gold);
-            margin: 0 0 0.5rem 0;
-            border-bottom: 1px dashed #4a6075;
-            padding-bottom: 0.3rem;
-        }
-        .timeline {
-            background: rgba(0, 20, 40, 0.5);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-    </style>
+    <!-- Все кастомные стили удалены — используется только глобальный style.css -->
 </head>
 <body>
     <header>
@@ -95,7 +41,7 @@
                 <h1>Лор вселенной</h1>
             </div>
 
-            <!-- НОВЫЙ РАЗДЕЛ: Устройство галактики -->
+            <!-- Устройство галактики — используется стандартная сетка card-grid и карточки -->
             <section style="margin-bottom: 3rem;">
                 <h2 style="color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.5rem;">
                     <i class="fas fa-map"></i> Устройство галактики
@@ -106,22 +52,24 @@
                     <p>Ключевой ресурс — <strong>плазма</strong>, которая служит основой для блюспейс-двигателей, производства энергии и военных технологий. Контроль над плазменными месторождениями определяет влияние государств и корпораций.</p>
                 </div>
 
-                <div class="region-map">
-                    <div class="region-card">
+                <!-- Карточки регионов — используем .card из глобальных стилей -->
+                <div class="card-grid" style="margin-top: 1.5rem;">
+                    <div class="card">
                         <h3><i class="fas fa-sun"></i> Центральные миры</h3>
                         <p><strong>Ядро цивилизации.</strong> Самые развитые и густонаселенные системы (Солнечная, Альфа Центавра, Тау Кита). Здесь находятся столицы крупнейших государств (ОПЗ, Ноократия Эранта), штаб-квартиры Мегакорпораций и ГИОР. Высокий уровень безопасности, развитая инфраструктура, но и жесткий контроль.</p>
                     </div>
-                    <div class="region-card">
+                    <div class="card">
                         <h3><i class="fas fa-star"></i> Колониальный пояс</h3>
                         <p><strong>Зона экспансии.</strong> Территории, где идут активные терраформирование и добыча ресурсов. Здесь расположены большинство колоний СНК, форпосты Империи Миртана и спорные зоны между ОПЗ и СССП. Жизнь сурова, закон часто уступает место корпоративному произволу или местной милиции.</p>
                     </div>
-                    <div class="region-card">
+                    <div class="card">
                         <h3><i class="fas fa-skull"></i> Фронтир</h3>
                         <p><strong>Дикие земли.</strong> Регионы на границе исследованного космоса. Слабая связь с центром, обилие нестабильных блюспейс-аномалий, пиратские гнезда и заброшенные исследовательские станции. Именно здесь корпорации <abbr title="NanoTrasen, Zeng-Hu, Hephaestus и др.">Большой пятерки</abbr> проводят самые рискованные эксперименты с плазмой и ксенобиологией.</p>
                     </div>
                 </div>
 
-                <div class="timeline">
+                <!-- Хронология (используем стандартный блок wiki-article с ненумерованным списком) -->
+                <div class="wiki-article" style="margin-top: 2rem;">
                     <h3><i class="fas fa-history"></i> Хронология экспансии</h3>
                     <ul style="list-style-type: none; padding-left: 0;">
                         <li style="margin-bottom: 0.8rem;"><strong>2189:</strong> Открытие блюспейс-эффекта доктором Миямото. Начало эры межзвездных перелетов.</li>
@@ -132,34 +80,36 @@
                     </ul>
                 </div>
 
-                <h3 style="margin-top: 2rem;"><i class="fas fa-exclamation-triangle"></i> Космические аномалии и опасности</h3>
-                <div class="anomaly-grid">
-                    <div class="anomaly-item">
-                        <h4>Блюспейс-разломы</h4>
-                        <p>Нестабильные зоны, где пространство "трещит по швам". Корабли, попавшие в такой разлом, могут быть выброшены за сотни световых лет или столкнуться с альтернативными версиями реальности. Исследуются <a href="../corporations/nt.html">NanoTrasen</a> для создания "коротких маршрутов".</p>
+                <!-- Аномалии — используем .rule-item (так как они визуально похожи на карточки с левой рамкой) -->
+                <h3 style="margin: 2rem 0 1rem; color: var(--accent-gold);"><i class="fas fa-exclamation-triangle"></i> Космические аномалии и опасности</h3>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
+                        <div class="rule-title"><i class="fas fa-wave-square"></i> Блюспейс-разломы</div>
+                        <div class="rule-desc">Нестабильные зоны, где пространство "трещит по швам". Корабли, попавшие в такой разлом, могут быть выброшены за сотни световых лет или столкнуться с альтернативными версиями реальности. Исследуются <a href="../corporations/nt.html">NanoTrasen</a> для создания "коротких маршрутов".</div>
                     </div>
-                    <div class="anomaly-item">
-                        <h4>Плазменные бури</h4>
-                        <p>Всплески излучения в туманностях с высоким содержанием плазмы. Выводят из строя электронику, вызывают галлюцинации у членов экипажа и мутации у незащищенных организмов. Часто встречаются на <strong>Фронтире</strong>.</p>
+                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
+                        <div class="rule-title"><i class="fas fa-wind"></i> Плазменные бури</div>
+                        <div class="rule-desc">Всплески излучения в туманностях с высоким содержанием плазмы. Выводят из строя электронику, вызывают галлюцинации у членов экипажа и мутации у незащищенных организмов. Часто встречаются на <strong>Фронтире</strong>.</div>
                     </div>
-                    <div class="anomaly-item">
-                        <h4>Сферы Мёрфи</h4>
-                        <p>Загадочные артефакты неизвестного происхождения, внутри которых законы физики работают иначе. Вблизи одной из таких сфер была основана <a href="../corporations/cybersun.html">CyberSun</a>.</p>
+                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
+                        <div class="rule-title"><i class="fas fa-circle-notch"></i> Сферы Мёрфи</div>
+                        <div class="rule-desc">Загадочные артефакты неизвестного происхождения, внутри которых законы физики работают иначе. Вблизи одной из таких сфер была основана <a href="../corporations/cybersun.html">CyberSun</a>.</div>
                     </div>
-                    <div class="anomaly-item">
-                        <h4>Кортесы (Cortes)</h4>
-                        <p>Корабли-призраки, дрейфующие в космосе. Часто несут на себе следы биологического заражения или экспериментов с блюспейсом. Встреча с ними — плохой знак даже для опытных старателей.</p>
+                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
+                        <div class="rule-title"><i class="fas fa-ghost"></i> Кортесы (Cortes)</div>
+                        <div class="rule-desc">Корабли-призраки, дрейфующие в космосе. Часто несут на себе следы биологического заражения или экспериментов с блюспейсом. Встреча с ними — плохой знак даже для опытных старателей.</div>
                     </div>
                 </div>
 
-                <div class="wiki-article" style="background: rgba(0, 30, 50, 0.3); margin-top: 2rem;">
+                <!-- Блок о картографии (wiki-article с цитатой) -->
+                <div class="wiki-article" style="margin-top: 2rem;">
                     <h4>Картография и навигация</h4>
                     <p>Для межзвездных перелетов используются <strong>блюспейс-врата</strong> — стационарные конструкции, создающие стабильный туннель между системами. Малые суда оснащаются <strong>блюспейс-двигателями</strong>, но их прыжки менее точны и требуют калибровки в "чистых" зонах. Карты галактики составляются <strong>Гильдией Картографов Гипериона</strong>, и даже ОПЗ признает их нейтралитет — никому не хочется остаться без актуальных данных о блюспейс-течениях.</p>
                     <p><i class="fas fa-quote-right" style="color: var(--accent-gold);"></i> <em>"Галактика — это не просто звезды и планеты. Это лабиринт, где каждый прыжок через блюспейс может стать последним, если не уважать её законы."</em> — Капитан дальнего плавания Солана Веррати.</p>
                 </div>
             </section>
 
-            <!-- Существующий раздел с государствами (слегка стилизован) -->
+            <!-- Государства и фракции (стандартная сетка карточек) -->
             <h2 style="margin: 3rem 0 1rem; color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.3rem;">
                 <i class="fas fa-flag"></i> Государства и фракции
             </h2>
@@ -206,6 +156,7 @@
                 </div>
             </div>
 
+            <!-- Ключевые понятия (wiki-article) -->
             <div class="wiki-article" style="margin-top: 2rem;">
                 <h2>Ключевые понятия</h2>
                 <ul>
