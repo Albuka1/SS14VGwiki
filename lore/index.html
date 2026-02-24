@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- Все кастомные стили удалены — используется только глобальный style.css -->
 </head>
 <body>
     <header>
@@ -41,130 +40,146 @@
                 <h1>Лор вселенной</h1>
             </div>
 
-            <!-- Устройство галактики — используется стандартная сетка card-grid и карточки -->
-            <section style="margin-bottom: 3rem;">
+            <!-- Весь контент теперь обернут в wiki-article для единого стиля -->
+            <div class="wiki-article">
+
+                <!-- Устройство галактики -->
                 <h2 style="color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.5rem;">
                     <i class="fas fa-map"></i> Устройство галактики
                 </h2>
                 
-                <div class="wiki-article">
-                    <p>Известное космическое пространство 26 века простирается в пределах рукава Ориона Млечного Пути, но благодаря <strong>блюспейс-технологиям</strong> (подпространственным прыжкам) границы обитаемой зоны значительно расширились. Галактика условно поделена на <strong>Центральные миры</strong>, <strong>Фронтир</strong> и <strong>Непроницаемые сектора</strong>. Политическая карта напоминает лоскутное одеяло: здесь соседствуют технократии, теократии, милитаристские империи и корпоративные анклавы.</p>
-                    <p>Ключевой ресурс — <strong>плазма</strong>, которая служит основой для блюспейс-двигателей, производства энергии и военных технологий. Контроль над плазменными месторождениями определяет влияние государств и корпораций.</p>
+                <p>Известное космическое пространство 26 века простирается в пределах рукава Ориона Млечного Пути, но благодаря <strong>блюспейс-технологиям</strong> (подпространственным прыжкам) границы обитаемой зоны значительно расширились. Галактика условно поделена на <strong>Центральные миры</strong>, <strong>Фронтир</strong> и <strong>Непроницаемые сектора</strong>. Политическая карта напоминает лоскутное одеяло: здесь соседствуют технократии, теократии, милитаристские империи и корпоративные анклавы.</p>
+                <p>Ключевой ресурс — <strong>плазма</strong>, которая служит основой для блюспейс-двигателей, производства энергии и военных технологий. Контроль над плазменными месторождениями определяет влияние государств и корпораций.</p>
+
+                <!-- Карточки регионов с явным выделением -->
+                <h3 style="color: var(--accent-gold); margin-top: 2rem;"><i class="fas fa-sun"></i> Регионы галактики</h3>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><i class="fas fa-sun"></i> Центральные миры</h3>
+                    <p style="margin-bottom: 0;"><strong>Ядро цивилизации.</strong> Самые развитые и густонаселенные системы (Солнечная, Альфа Центавра, Тау Кита). Здесь находятся столицы крупнейших государств (ОПЗ, Ноократия Эранта), штаб-квартиры Мегакорпораций и ГИОР. Высокий уровень безопасности, развитая инфраструктура, но и жесткий контроль.</p>
                 </div>
 
-                <!-- Карточки регионов — используем .card из глобальных стилей -->
-                <div class="card-grid" style="margin-top: 1.5rem;">
-                    <div class="card">
-                        <h3><i class="fas fa-sun"></i> Центральные миры</h3>
-                        <p><strong>Ядро цивилизации.</strong> Самые развитые и густонаселенные системы (Солнечная, Альфа Центавра, Тау Кита). Здесь находятся столицы крупнейших государств (ОПЗ, Ноократия Эранта), штаб-квартиры Мегакорпораций и ГИОР. Высокий уровень безопасности, развитая инфраструктура, но и жесткий контроль.</p>
-                    </div>
-                    <div class="card">
-                        <h3><i class="fas fa-star"></i> Колониальный пояс</h3>
-                        <p><strong>Зона экспансии.</strong> Территории, где идут активные терраформирование и добыча ресурсов. Здесь расположены большинство колоний СНК, форпосты Империи Миртана и спорные зоны между ОПЗ и СССП. Жизнь сурова, закон часто уступает место корпоративному произволу или местной милиции.</p>
-                    </div>
-                    <div class="card">
-                        <h3><i class="fas fa-skull"></i> Фронтир</h3>
-                        <p><strong>Дикие земли.</strong> Регионы на границе исследованного космоса. Слабая связь с центром, обилие нестабильных блюспейс-аномалий, пиратские гнезда и заброшенные исследовательские станции. Именно здесь корпорации <abbr title="NanoTrasen, Zeng-Hu, Hephaestus и др.">Большой пятерки</abbr> проводят самые рискованные эксперименты с плазмой и ксенобиологией.</p>
-                    </div>
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><i class="fas fa-star"></i> Колониальный пояс</h3>
+                    <p style="margin-bottom: 0;"><strong>Зона экспансии.</strong> Территории, где идут активные терраформирование и добыча ресурсов. Здесь расположены большинство колоний СНК, форпосты Империи Миртана и спорные зоны между ОПЗ и СССП. Жизнь сурова, закон часто уступает место корпоративному произволу или местной милиции.</p>
                 </div>
 
-                <!-- Хронология (используем стандартный блок wiki-article с ненумерованным списком) -->
-                <div class="wiki-article" style="margin-top: 2rem;">
-                    <h3><i class="fas fa-history"></i> Хронология экспансии</h3>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li style="margin-bottom: 0.8rem;"><strong>2189:</strong> Открытие блюспейс-эффекта доктором Миямото. Начало эры межзвездных перелетов.</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>2223:</strong> Первый контакт с унатхами (дипломатическая миссия ОПЗ на Роле-1).</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>2315:</strong> Подписание «Хартии Фронтира» — раздел сфер влияния между ОПЗ, корпорациями и независимыми колониями.</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>2456:</strong> Кризис блюспейс-шторма в секторе Тау-9. Появление зон отчуждения с искаженным пространством-временем.</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>2577:</strong> Текущая дата. Эскалация конфликта между ОПЗ и СССП. Рост активности криминальных синдикатов на торговых путях.</li>
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><i class="fas fa-skull"></i> Фронтир</h3>
+                    <p style="margin-bottom: 0;"><strong>Дикие земли.</strong> Регионы на границе исследованного космоса. Слабая связь с центром, обилие нестабильных блюспейс-аномалий, пиратские гнезда и заброшенные исследовательские станции. Именно здесь корпорации <abbr title="NanoTrasen, Zeng-Hu, Hephaestus и др.">Большой пятерки</abbr> проводят самые рискованные эксперименты с плазмой и ксенобиологией.</p>
+                </div>
+
+                <!-- Хронология (список) -->
+                <h3 style="color: var(--accent-gold); margin-top: 2rem;"><i class="fas fa-history"></i> Хронология экспансии</h3>
+                <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                    <ul style="list-style-type: none; padding-left: 0; margin: 0;">
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>2189:</strong> Открытие блюспейс-эффекта доктором Миямото. Начало эры межзвездных перелетов.</li>
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>2223:</strong> Первый контакт с унатхами (дипломатическая миссия ОПЗ на Роле-1).</li>
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>2315:</strong> Подписание «Хартии Фронтира» — раздел сфер влияния между ОПЗ, корпорациями и независимыми колониями.</li>
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>2456:</strong> Кризис блюспейс-шторма в секторе Тау-9. Появление зон отчуждения с искаженным пространством-временем.</li>
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>2577:</strong> Текущая дата. Эскалация конфликта между ОПЗ и СССП. Рост активности криминальных синдикатов на торговых путях.</li>
                     </ul>
                 </div>
 
-                <!-- Аномалии — используем .rule-item (так как они визуально похожи на карточки с левой рамкой) -->
-                <h3 style="margin: 2rem 0 1rem; color: var(--accent-gold);"><i class="fas fa-exclamation-triangle"></i> Космические аномалии и опасности</h3>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
-                        <div class="rule-title"><i class="fas fa-wave-square"></i> Блюспейс-разломы</div>
-                        <div class="rule-desc">Нестабильные зоны, где пространство "трещит по швам". Корабли, попавшие в такой разлом, могут быть выброшены за сотни световых лет или столкнуться с альтернативными версиями реальности. Исследуются <a href="../corporations/nt.html">NanoTrasen</a> для создания "коротких маршрутов".</div>
-                    </div>
-                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
-                        <div class="rule-title"><i class="fas fa-wind"></i> Плазменные бури</div>
-                        <div class="rule-desc">Всплески излучения в туманностях с высоким содержанием плазмы. Выводят из строя электронику, вызывают галлюцинации у членов экипажа и мутации у незащищенных организмов. Часто встречаются на <strong>Фронтире</strong>.</div>
-                    </div>
-                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
-                        <div class="rule-title"><i class="fas fa-circle-notch"></i> Сферы Мёрфи</div>
-                        <div class="rule-desc">Загадочные артефакты неизвестного происхождения, внутри которых законы физики работают иначе. Вблизи одной из таких сфер была основана <a href="../corporations/cybersun.html">CyberSun</a>.</div>
-                    </div>
-                    <div class="rule-item" style="list-style: none; margin-bottom: 0;">
-                        <div class="rule-title"><i class="fas fa-ghost"></i> Кортесы (Cortes)</div>
-                        <div class="rule-desc">Корабли-призраки, дрейфующие в космосе. Часто несут на себе следы биологического заражения или экспериментов с блюспейсом. Встреча с ними — плохой знак даже для опытных старателей.</div>
-                    </div>
+                <!-- Аномалии и опасности -->
+                <h3 style="color: var(--accent-gold);"><i class="fas fa-exclamation-triangle"></i> Космические аномалии и опасности</h3>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><i class="fas fa-wave-square"></i> Блюспейс-разломы</h3>
+                    <p style="margin-bottom: 0;">Нестабильные зоны, где пространство "трещит по швам". Корабли, попавшие в такой разлом, могут быть выброшены за сотни световых лет или столкнуться с альтернативными версиями реальности. Исследуются <a href="../corporations/nt.html">NanoTrasen</a> для создания "коротких маршрутов".</p>
                 </div>
 
-                <!-- Блок о картографии (wiki-article с цитатой) -->
-                <div class="wiki-article" style="margin-top: 2rem;">
-                    <h4>Картография и навигация</h4>
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><i class="fas fa-wind"></i> Плазменные бури</h3>
+                    <p style="margin-bottom: 0;">Всплески излучения в туманностях с высоким содержанием плазмы. Выводят из строя электронику, вызывают галлюцинации у членов экипажа и мутации у незащищенных организмов. Часто встречаются на <strong>Фронтире</strong>.</p>
+                </div>
+
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><i class="fas fa-circle-notch"></i> Сферы Мёрфи</h3>
+                    <p style="margin-bottom: 0;">Загадочные артефакты неизвестного происхождения, внутри которых законы физики работают иначе. Вблизи одной из таких сфер была основана <a href="../corporations/cybersun.html">CyberSun</a>.</p>
+                </div>
+
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><i class="fas fa-ghost"></i> Кортесы (Cortes)</h3>
+                    <p style="margin-bottom: 0;">Корабли-призраки, дрейфующие в космосе. Часто несут на себе следы биологического заражения или экспериментов с блюспейсом. Встреча с ними — плохой знак даже для опытных старателей.</p>
+                </div>
+
+                <!-- Блок о картографии (цитата) -->
+                <h3 style="color: var(--accent-gold); margin-top: 2rem;">Картография и навигация</h3>
+                <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-gold);">
                     <p>Для межзвездных перелетов используются <strong>блюспейс-врата</strong> — стационарные конструкции, создающие стабильный туннель между системами. Малые суда оснащаются <strong>блюспейс-двигателями</strong>, но их прыжки менее точны и требуют калибровки в "чистых" зонах. Карты галактики составляются <strong>Гильдией Картографов Гипериона</strong>, и даже ОПЗ признает их нейтралитет — никому не хочется остаться без актуальных данных о блюспейс-течениях.</p>
-                    <p><i class="fas fa-quote-right" style="color: var(--accent-gold);"></i> <em>"Галактика — это не просто звезды и планеты. Это лабиринт, где каждый прыжок через блюспейс может стать последним, если не уважать её законы."</em> — Капитан дальнего плавания Солана Веррати.</p>
+                    <p style="margin-bottom: 0;"><i class="fas fa-quote-right" style="color: var(--accent-gold);"></i> <em>"Галактика — это не просто звезды и планеты. Это лабиринт, где каждый прыжок через блюспейс может стать последним, если не уважать её законы."</em> — Капитан дальнего плавания Солана Веррати.</p>
                 </div>
-            </section>
 
-            <!-- Государства и фракции (стандартная сетка карточек) -->
-            <h2 style="margin: 3rem 0 1rem; color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.3rem;">
-                <i class="fas fa-flag"></i> Государства и фракции
-            </h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3><a href="opz.html">Объединённое Правительство Земли (ОПЗ)</a></h3>
-                    <p>Крупнейшее человеческое государство, военная республика, контролирующая Солнечную систему и множество колоний.</p>
+                <!-- Государства и фракции -->
+                <h2 style="color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.3rem; margin-top: 2rem;">
+                    <i class="fas fa-flag"></i> Государства и фракции
+                </h2>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="opz.html">Объединённое Правительство Земли (ОПЗ)</a></h3>
+                    <p style="margin-bottom: 0;">Крупнейшее человеческое государство, военная республика, контролирующая Солнечную систему и множество колоний.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="sssp.html">Союз Советских Социалистических Планет (СССП)</a></h3>
-                    <p>Социалистическое государство на окраинах галактики, признанное ОПЗ террористической организацией.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="sssp.html">Союз Советских Социалистических Планет (СССП)</a></h3>
+                    <p style="margin-bottom: 0;">Социалистическое государство на окраинах галактики, признанное ОПЗ террористической организацией.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="snk.html">Союз Независимых Колоний (СНК)</a></h3>
-                    <p>Государство, отделившееся от ОПЗ, построенное на частном капитале и корпорациях.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="snk.html">Союз Независимых Колоний (СНК)</a></h3>
+                    <p style="margin-bottom: 0;">Государство, отделившееся от ОПЗ, построенное на частном капитале и корпорациях.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="empire-mirtan.html">Империя Миртана</a></h3>
-                    <p>Ксенофобное человеческое государство, живущее под постоянной угрозой ксеноморфов. Культ смерти и самопожертвования.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="empire-mirtan.html">Империя Миртана</a></h3>
+                    <p style="margin-bottom: 0;">Ксенофобное человеческое государство, живущее под постоянной угрозой ксеноморфов. Культ смерти и самопожертвования.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="halifat.html">Халифатский Божественный Конгломерат</a></h3>
-                    <p>Религиозное государство ражулитов (людей), исповедующих Неоислам.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="halifat.html">Халифатский Божественный Конгломерат</a></h3>
+                    <p style="margin-bottom: 0;">Религиозное государство ражулитов (людей), исповедующих Неоислам.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="noocracy.html">Ноократия Эранта</a></h3>
-                    <p>Государство, основанное на власти интеллекта. Строгая классовая система из 15 уровней.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="noocracy.html">Ноократия Эранта</a></h3>
+                    <p style="margin-bottom: 0;">Государство, основанное на власти интеллекта. Строгая классовая система из 15 уровней.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="umpor.html">Умпорская Федерация</a></h3>
-                    <p>Государство, страдающее от гуманитарного кризиса, получающее помощь от СНК и СССП.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="umpor.html">Умпорская Федерация</a></h3>
+                    <p style="margin-bottom: 0;">Государство, страдающее от гуманитарного кризиса, получающее помощь от СНК и СССП.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="notda.html">Великая Империя Нотда</a></h3>
-                    <p>Загадочное государство, с которым поддерживают нейтралитет.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="notda.html">Великая Империя Нотда</a></h3>
+                    <p style="margin-bottom: 0;">Загадочное государство, с которым поддерживают нейтралитет.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="brotherhood.html">Межпланетарное Братство</a></h3>
-                    <p>Криминальный синдикат, разделенный на Семьи, контролирующие разные сферы.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="brotherhood.html">Межпланетарное Братство</a></h3>
+                    <p style="margin-bottom: 0;">Криминальный синдикат, разделенный на Семьи, контролирующие разные сферы.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="gior.html">ГИОР</a></h3>
-                    <p>Галактическая Инициатива Объединённых Рас — надгосударственный орган, регулирующий межрасовые отношения.</p>
+                
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;"><a href="gior.html">ГИОР</a></h3>
+                    <p style="margin-bottom: 0;">Галактическая Инициатива Объединённых Рас — надгосударственный орган, регулирующий межрасовые отношения.</p>
                 </div>
-            </div>
 
-            <!-- Ключевые понятия (wiki-article) -->
-            <div class="wiki-article" style="margin-top: 2rem;">
-                <h2>Ключевые понятия</h2>
-                <ul>
-                    <li><strong>ОПРС</strong> — <a href="../game/corporate-law.html#oprs">Общие Права Разумных Существ</a>, аналог декларации прав человека для всех рас.</li>
-                    <li><strong>Фронтир</strong> — слабоосвоенные регионы галактики, где корпорации ведут добычу плазмы и исследования.</li>
-                    <li><strong>Корпоративная Зона</strong> — территории, переданные в управление корпорациям Большой пятёрки.</li>
-                </ul>
-            </div>
+                <!-- Ключевые понятия -->
+                <h2 style="color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.3rem; margin-top: 2rem;">
+                    <i class="fas fa-book-open"></i> Ключевые понятия
+                </h2>
+                
+                <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                    <ul style="list-style-type: none; padding-left: 0; margin: 0;">
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>ОПРС</strong> — <a href="../game/corporate-law.html#oprs">Общие Права Разумных Существ</a>, аналог декларации прав человека для всех рас.</li>
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>Фронтир</strong> — слабоосвоенные регионы галактики, где корпорации ведут добычу плазмы и исследования.</li>
+                        <li style="margin-bottom: 0.8rem; border-left: 3px solid var(--accent-orange); padding-left: 1rem;"><strong>Корпоративная Зона</strong> — территории, переданные в управление корпорациям Большой пятёрки.</li>
+                    </ul>
+                </div>
+
+            </div> <!-- Закрытие wiki-article -->
 
             <div class="breadcrumbs">
                 <a href="../index.html">Главная</a> / <span>Лор вселенной</span>

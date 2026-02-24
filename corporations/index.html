@@ -9,6 +9,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Стиль для тегов корпораций */
+        .corp-tag {
+            display: inline-block;
+            background: rgba(222, 114, 25, 0.15);
+            color: var(--accent-orange);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            text-transform: lowercase;
+            border: 1px solid rgba(222, 114, 25, 0.3);
+        }
+        
+        /* Стиль для заголовка внутри блока */
+        .rule-group h3 {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Стиль для специального тега "Большая пятёрка" */
+        .corp-tag.big-five {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -42,54 +73,99 @@
 
             <div class="wiki-article">
                 <p>В 26 веке корпорации стали не просто экономическими, но и политическими игроками, способными конкурировать с целыми государствами. Особую роль играет <strong>«Большая пятёрка»</strong> — корпорации, получившие от <a href="../lore/opz.html">ОПЗ</a> право на освоение <a href="../lore/index.html#frontier">Фронтира</a>. Ниже представлен полный список ключевых корпораций, действующих в известном космосе.</p>
-            </div>
+                
+                <h2 style="margin: 2rem 0 1rem; color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.5rem;">
+                    <i class="fas fa-crown"></i> Большая пятёрка Фронтира
+                </h2>
+                
+                <!-- NanoTrasen -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;">
+                        <a href="nanotrasen.html">NanoTrasen (NT)</a>
+                        <span class="corp-tag big-five">большая пятёрка</span>
+                        <span class="corp-tag">исследования</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Крупнейшая трансгалактическая корпорация, лидер в исследованиях <a href="../tech/energy.html#plasma">плазмы</a>, ксено-биологии и передовых технологий. Именно её станции — место действия большинства событий.</p>
+                </div>
 
-            <h2 style="margin: 2rem 0 1rem; color: var(--accent-gold);">Большая пятёрка Фронтира</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3><a href="nanotrasen.html">NanoTrasen (NT)</a></h3>
-                    <p>Крупнейшая трансгалактическая корпорация, лидер в исследованиях <a href="../tech/energy.html#plasma">плазмы</a>, ксено-биологии и передовых технологий. Именно её станции — место действия большинства событий.</p>
+                <!-- Cybersun Industries -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;">
+                        <a href="cybersun.html">Cybersun Industries / Saibasan</a>
+                        <span class="corp-tag big-five">большая пятёрка</span>
+                        <span class="corp-tag">кибернетика</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Гигант кибернетики, вооружений и электроники. Совместно с NT разрабатывает киборгов и ИИ. Saibasan — дочерняя компания, производящая электронику по всей галактике.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="cybersun.html">Cybersun Industries / Saibasan</a></h3>
-                    <p>Гигант кибернетики, вооружений и электроники. Совместно с NT разрабатывает киборгов и ИИ. Saibasan — дочерняя компания, производящая электронику по всей галактике.</p>
+
+                <!-- Nakamura Engineering -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;">
+                        <a href="nakamura.html">Nakamura Engineering</a>
+                        <span class="corp-tag big-five">большая пятёрка</span>
+                        <span class="corp-tag">колонизация</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Корпорация, специализирующаяся на колонизации планет и производстве высокотехнологичной продукции. Известна своими комплексными решениями для освоения новых систем.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="nakamura.html">Nakamura Engineering</a></h3>
-                    <p>Корпорация, специализирующаяся на колонизации планет и производстве высокотехнологичной продукции. Известна своими комплексными решениями для освоения новых систем.</p>
+
+                <!-- Vitezstvi -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;">
+                        <a href="vitezstvi.html">Vitezstvi</a>
+                        <span class="corp-tag big-five">большая пятёрка</span>
+                        <span class="corp-tag">оборонные технологии</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Оборонная корпорация, предоставляющая услуги по защите транспорта и имеющая собственные авиационные подразделения. Элитные наёмники и производители боевой техники.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="vitezstvi.html">Vitezstvi</a></h3>
-                    <p>Оборонная корпорация, предоставляющая услуги по защите транспорта и имеющая собственные авиационные подразделения. Элитные наёмники и производители боевой техники.</p>
+
+                <!-- Conarex -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;">
+                        <a href="conarex.html">Conarex</a>
+                        <span class="corp-tag big-five">большая пятёрка</span>
+                        <span class="corp-tag">логистика</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Транспортно-логистическая корпорация с богатой историей, прошедшая путь от производителя двигателей до крупнейшего перевозчика, работающего во всех ключевых государствах.</p>
                 </div>
-                <div class="card">
-                    <h3><a href="conarex.html">Conarex</a></h3>
-                    <p>Транспортно-логистическая корпорация с богатой историей, прошедшая путь от производителя двигателей до крупнейшего перевозчика, работающего во всех ключевых государствах.</p>
+
+                <h2 style="margin: 2rem 0 1rem; color: var(--accent-gold); border-bottom: 2px solid #2a4055; padding-bottom: 0.5rem;">
+                    <i class="fas fa-industry"></i> Крупные корпорации
+                </h2>
+
+                <!-- Hephaestus Industries -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;">
+                        <a href="hephaestus.html">Гефест (Hephaestus Industries)</a>
+                        <span class="corp-tag">добыча</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Одна из старейших добывающих корпораций, начавшая с освоения пояса астероидов в Солнечной системе. Ныне активно работает на <a href="../lore/index.html#frontier">Фронтире</a>, сталкиваясь с проблемами колонистов.</p>
+                </div>
+
+                <!-- Космологистика -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3 style="color: var(--accent-orange); margin-top: 0;">
+                        <a href="kosmologistics.html">Космологистика</a>
+                        <span class="corp-tag">транспорт</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Крупная транспортная компания, тесно связанная с <a href="../lore/snk.html">СНК</a>. Конкурирует с <a href="conarex.html">Conarex</a> за право доставки гуманитарных грузов в проблемные регионы.</p>
+                </div>
+
+                <!-- Пояснение про Большую пятёрку -->
+                <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem; margin-top: 2rem; border-left: 4px solid var(--accent-gold);">
+                    <h3 style="color: var(--accent-gold); margin-top: 0;"><i class="fas fa-info-circle"></i> Что такое «Большая пятёрка»?</h3>
+                    <p style="margin-bottom: 0;">Так называют пять корпораций, получивших от <a href="../lore/opz.html">ОПЗ</a> особые лицензии на освоение <a href="../lore/index.html#frontier">Фронтира</a> — слабоизученных регионов галактики, богатых <a href="../tech/energy.html#plasma">плазмой</a> и артефактами древних цивилизаций. Эти корпорации имеют право создавать собственные службы безопасности, заключать соглашения с инопланетными государствами и фактически управлять колониями на окраинах известного космоса.</p>
                 </div>
             </div>
-
-            <h2 style="margin: 2rem 0 1rem; color: var(--accent-gold);">Крупные корпорации</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3><a href="hephaestus.html">Гефест (Hephaestus Industries)</a></h3>
-                    <p>Одна из старейших добывающих корпораций, начавшая с освоения пояса астероидов в Солнечной системе. Ныне активно работает на <a href="../lore/index.html#frontier">Фронтире</a>, сталкиваясь с проблемами колонистов.</p>
-                </div>
-                <div class="card">
-                    <h3><a href="kosmologistics.html">Космологистика</a></h3>
-                    <p>Крупная транспортная компания, тесно связанная с <a href="../lore/snk.html">СНК</a>. Конкурирует с <a href="conarex.html">Conarex</a> за право доставки гуманитарных грузов в проблемные регионы.</p>
-                </div>
-            </div>
-
-            <div class="wiki-article" style="margin-top: 2rem;">
-                <h2>Что такое «Большая пятёрка»?</h2>
-                <p>Так называют пять корпораций, получивших от <a href="../lore/opz.html">ОПЗ</a> особые лицензии на освоение <a href="../lore/index.html#frontier">Фронтира</a> — слабоизученных регионов галактики, богатых <a href="../tech/energy.html#plasma">плазмой</a> и артефактами древних цивилизаций. Эти корпорации имеют право создавать собственные службы безопасности, заключать соглашения с инопланетными государствами и фактически управлять колониями на окраинах известного космоса.</p>
+            
+           <div class="breadcrumbs">
+                <a href="../index.html">Главная</a> / <span>Корпорации</span>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="container">
-             
+
         </div>
     </footer>
 
