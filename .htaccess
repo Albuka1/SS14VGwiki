@@ -1,0 +1,14 @@
+# Включаем модуль rewrite
+RewriteEngine On
+
+# Убираем .html из URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Перенаправляем запросы с .html на URL без .html
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,NE,L]
+
+# Устанавливаем index для корневых директорий
+DirectoryIndex index.html home.html main.html
