@@ -1,0 +1,457 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-void font-body text-ink antialiased;
+    background-image:
+      radial-gradient(circle at top, rgba(255, 138, 61, 0.08), transparent 32%),
+      radial-gradient(circle at 20% 20%, rgba(82, 139, 255, 0.1), transparent 22%),
+      linear-gradient(180deg, #08101d 0%, #050915 45%, #04070f 100%);
+  }
+
+  a {
+    @apply outline-none;
+  }
+
+  ::selection {
+    background: rgba(255, 138, 61, 0.28);
+    color: white;
+  }
+}
+
+@layer components {
+  .content-prose {
+    @apply prose prose-invert max-w-none text-steel;
+    --tw-prose-body: theme(colors.steel);
+    --tw-prose-headings: theme(colors.white);
+    --tw-prose-lead: theme(colors.ink);
+    --tw-prose-links: theme(colors.gold);
+    --tw-prose-bold: theme(colors.white);
+    --tw-prose-counters: theme(colors.steel);
+    --tw-prose-bullets: theme(colors.ember);
+    --tw-prose-hr: rgba(255, 255, 255, 0.08);
+    --tw-prose-quotes: theme(colors.white);
+    --tw-prose-quote-borders: rgba(255, 193, 93, 0.35);
+    --tw-prose-captions: theme(colors.steel);
+    --tw-prose-code: theme(colors.gold);
+    --tw-prose-pre-code: theme(colors.ink);
+    --tw-prose-pre-bg: rgba(7, 12, 24, 0.95);
+    --tw-prose-th-borders: rgba(255, 255, 255, 0.12);
+    --tw-prose-td-borders: rgba(255, 255, 255, 0.08);
+  }
+
+  .content-prose > :first-child {
+    @apply mt-0;
+  }
+
+  .content-prose a {
+    @apply font-medium no-underline transition hover:text-ember;
+  }
+
+  .content-prose h2 {
+    @apply font-display text-2xl font-bold text-white;
+  }
+
+  .content-prose h3 {
+    @apply font-display text-xl font-semibold text-white;
+  }
+
+  .content-prose strong {
+    @apply text-white;
+  }
+
+  .content-prose blockquote {
+    @apply rounded-3xl border-l-4 border-gold/50 bg-white/[0.03] px-6 py-4 text-ink;
+  }
+
+  .content-prose table {
+    @apply my-6 w-full overflow-hidden rounded-2xl border border-white/10 bg-black/10 text-sm shadow-glow;
+  }
+
+  .content-prose thead {
+    @apply bg-white/[0.05] text-white;
+  }
+
+  .content-prose thead th {
+    @apply border-b border-white/10 px-4 py-3 text-left font-semibold;
+  }
+
+  .content-prose tbody td {
+    @apply border-b border-white/5 px-4 py-3 align-top;
+  }
+
+  .content-prose tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .content-prose hr {
+    @apply my-8 border-white/10;
+  }
+
+  .content-prose .breadcrumbs,
+  .content-prose .home-breadcrumbs {
+    @apply mb-6 flex flex-wrap items-center gap-2 text-sm text-steel;
+  }
+
+  .content-prose .breadcrumbs a,
+  .content-prose .home-breadcrumbs a {
+    @apply text-gold;
+  }
+
+  .content-prose .page-header {
+    @apply mb-8 flex items-center gap-4 border-b border-white/10 pb-5;
+  }
+
+  .content-prose .page-header i {
+    @apply text-3xl text-ember;
+  }
+
+  .content-prose .page-header h1 {
+    @apply my-0 font-display text-4xl font-bold text-white;
+  }
+
+  .content-prose .rule-group,
+  .content-prose .warning-box,
+  .content-prose .success-box,
+  .content-prose .info-box,
+  .content-prose .medical-note,
+  .content-prose .procedure-box,
+  .content-prose .quote,
+  .content-prose .character-quote {
+    @apply my-5 rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 shadow-glow;
+  }
+
+  .content-prose .rule-group {
+    @apply border-l-4 border-l-ember transition hover:border-l-gold hover:bg-white/[0.06];
+  }
+
+  .content-prose .rule-group h3 {
+    @apply mt-0 flex flex-wrap items-center gap-2 text-ember;
+  }
+
+  .content-prose .rule-group h3 a {
+    @apply text-current;
+  }
+
+  .content-prose .warning-box {
+    @apply border-l-4 border-l-amber-300;
+  }
+
+  .content-prose .success-box {
+    @apply border-l-4 border-l-emerald-400;
+  }
+
+  .content-prose .info-box,
+  .content-prose .medical-note,
+  .content-prose .procedure-box {
+    @apply border-l-4 border-l-sky-400;
+  }
+
+  .content-prose .character-quote,
+  .content-prose .quote {
+    @apply border-l-4 border-l-gold italic text-ink;
+  }
+
+  .content-prose .infobox {
+    @apply float-none mb-6 w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] shadow-glow md:float-right md:ml-6 md:max-w-sm;
+  }
+
+  .content-prose .infobox-title {
+    @apply bg-white/[0.05] px-5 py-4 font-display text-lg font-semibold text-white;
+  }
+
+  .content-prose .infobox-row {
+    @apply border-t border-white/10 px-5 py-3 text-sm text-ink;
+  }
+
+  .content-prose .infobox-label {
+    @apply mr-2 font-semibold text-gold;
+  }
+
+  .content-prose .tech-tag,
+  .content-prose .species-tag,
+  .content-prose .corp-tag,
+  .content-prose .game-tag,
+  .content-prose .code-badge,
+  .content-prose .severity-tag,
+  .content-prose .stamp,
+  .content-prose .allowed,
+  .content-prose .approved,
+  .content-prose .forbidden {
+    @apply inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em];
+  }
+
+  .content-prose .tech-tag,
+  .content-prose .species-tag,
+  .content-prose .corp-tag,
+  .content-prose .game-tag {
+    @apply border-ember/30 bg-ember/10 text-ember;
+  }
+
+  .content-prose .tech-tag.ftl,
+  .content-prose .game-tag.legal {
+    @apply border-sky-400/30 bg-sky-400/10 text-sky-300;
+  }
+
+  .content-prose .tech-tag.energy {
+    @apply border-amber-300/30 bg-amber-300/10 text-amber-200;
+  }
+
+  .content-prose .tech-tag.cyber,
+  .content-prose .game-tag.sop {
+    @apply border-emerald-400/30 bg-emerald-400/10 text-emerald-300;
+  }
+
+  .content-prose .tech-tag.space {
+    @apply border-violet-400/30 bg-violet-400/10 text-violet-300;
+  }
+
+  .content-prose .corp-tag.big-five {
+    @apply border-gold/30 bg-gold/10 text-gold;
+  }
+
+  .content-prose .allowed,
+  .content-prose .approved {
+    @apply border-emerald-400/30 bg-emerald-400/10 text-emerald-300;
+  }
+
+  .content-prose .forbidden {
+    @apply border-rose-400/30 bg-rose-400/10 text-rose-300;
+  }
+
+  .content-prose .code-badge,
+  .content-prose .code-reference,
+  .content-prose .stamp {
+    @apply border-white/10 bg-white/[0.05] text-ink;
+  }
+
+  .content-prose .code-reference {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em];
+  }
+
+  .content-prose .code-red {
+    @apply border-rose-400/30 bg-rose-400/10 text-rose-300;
+  }
+
+  .content-prose .code-blue {
+    @apply border-sky-400/30 bg-sky-400/10 text-sky-300;
+  }
+
+  .content-prose .code-green {
+    @apply border-emerald-400/30 bg-emerald-400/10 text-emerald-300;
+  }
+
+  .content-prose .code-yellow {
+    @apply border-amber-300/30 bg-amber-300/10 text-amber-200;
+  }
+
+  .content-prose .code-purple {
+    @apply border-violet-400/30 bg-violet-400/10 text-violet-300;
+  }
+
+  .content-prose .severity-1,
+  .content-prose .modifier-positive {
+    @apply border-emerald-400/30 bg-emerald-400/10 text-emerald-300;
+  }
+
+  .content-prose .severity-2,
+  .content-prose .severity-3 {
+    @apply border-amber-300/30 bg-amber-300/10 text-amber-200;
+  }
+
+  .content-prose .severity-4,
+  .content-prose .severity-5,
+  .content-prose .severity-6,
+  .content-prose .modifier-negative {
+    @apply border-rose-400/30 bg-rose-400/10 text-rose-300;
+  }
+
+  .content-prose .command-chain,
+  .content-prose .priority-list,
+  .content-prose .duty-list {
+    @apply m-0 space-y-3 p-0;
+    list-style: none;
+  }
+
+  .content-prose .chain-item,
+  .content-prose .priority-list li,
+  .content-prose .duty-list li {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3;
+  }
+
+  .content-prose .chain-number {
+    @apply mr-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-ember/30 bg-ember/10 text-sm font-bold text-ember;
+  }
+
+  .content-prose .chain-role,
+  .content-prose .role-title {
+    @apply font-display text-lg font-semibold text-white;
+  }
+
+  .content-prose .chain-note {
+    @apply mt-2 text-sm text-steel;
+  }
+
+  .content-prose .force-table,
+  .content-prose .law-table,
+  .content-prose .blacklist-table,
+  .content-prose .command-table,
+  .content-prose .spec-order-table {
+    @apply overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/10;
+  }
+
+  .content-prose .home-main {
+    @apply space-y-8;
+  }
+
+  .content-prose .welcome-logo {
+    @apply flex flex-col items-center gap-3 text-center;
+  }
+
+  .content-prose .welcome-title {
+    @apply m-0 bg-gradient-to-r from-amber-200 via-white to-amber-300 bg-clip-text font-display text-3xl font-bold text-transparent sm:text-4xl;
+  }
+
+  .content-prose .home-hero,
+  .content-prose .about-panel {
+    @apply rounded-[1.75rem] border border-white/10 bg-white/[0.04] px-6 py-6 shadow-glow;
+  }
+
+  .content-prose .home-command-deck {
+    @apply grid gap-5 rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,138,61,0.12),rgba(17,25,42,0.88))] p-6 shadow-ember lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)];
+  }
+
+  .content-prose .deck-main,
+  .content-prose .deck-metrics {
+    @apply m-0;
+  }
+
+  .content-prose .deck-kicker,
+  .content-prose .card-kicker {
+    @apply mb-3 inline-flex rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-gold;
+  }
+
+  .content-prose .deck-description {
+    @apply max-w-2xl text-steel;
+  }
+
+  .content-prose .deck-actions {
+    @apply mt-6 flex flex-wrap gap-3;
+  }
+
+  .content-prose .deck-btn {
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-3 text-sm font-semibold no-underline transition;
+  }
+
+  .content-prose .deck-btn.primary {
+    @apply border-ember/60 bg-ember/10 text-white shadow-ember hover:border-gold/50 hover:text-gold;
+  }
+
+  .content-prose .deck-btn.secondary {
+    @apply border-white/10 bg-white/[0.03] text-steel hover:border-white/20 hover:text-white;
+  }
+
+  .content-prose .deck-metrics {
+    @apply grid gap-3 sm:grid-cols-3 lg:grid-cols-1;
+  }
+
+  .content-prose .metric-card {
+    @apply rounded-[1.5rem] border border-white/10 bg-black/20 p-4;
+  }
+
+  .content-prose .metric-label,
+  .content-prose .metric-footnote {
+    @apply my-0 text-sm text-steel;
+  }
+
+  .content-prose .metric-value {
+    @apply my-2 font-display text-4xl font-bold text-white;
+  }
+
+  .content-prose .ops-ticker {
+    @apply overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-4 py-4;
+  }
+
+  .content-prose .ticker-track {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .content-prose .ticker-track span {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-ink;
+  }
+
+  .content-prose .article-showcase {
+    @apply grid gap-4 lg:grid-cols-3;
+  }
+
+  .content-prose .showcase-card {
+    @apply rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-glow;
+  }
+
+  .content-prose .showcase-card.hot {
+    @apply border-ember/30 bg-ember/10;
+  }
+
+  .content-prose .showcase-card.info {
+    @apply border-sky-400/20 bg-sky-400/10;
+  }
+
+  .content-prose .showcase-card.neutral {
+    @apply bg-white/[0.05];
+  }
+
+  .content-prose .card-grid,
+  .content-prose .section-grid {
+    @apply grid gap-4 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .content-prose .card {
+    @apply rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-glow transition hover:-translate-y-1 hover:border-gold/30 hover:bg-white/[0.06];
+  }
+
+  .content-prose .card h3,
+  .content-prose .card p {
+    @apply my-0;
+  }
+
+  .content-prose .card h3 {
+    @apply text-xl text-white;
+  }
+
+  .content-prose .card h3 a {
+    @apply no-underline;
+  }
+
+  .content-prose .card p {
+    @apply mt-3 text-sm leading-7 text-steel;
+  }
+
+  .content-prose .discord-card {
+    @apply border-sky-400/30 bg-sky-400/10;
+  }
+
+  .content-prose .github-card {
+    @apply border-violet-400/30 bg-violet-400/10;
+  }
+
+  .quick-dock {
+    @apply fixed bottom-6 right-6 z-30 hidden flex-col gap-3 lg:flex;
+  }
+
+  .dock-link {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-void/90 text-steel shadow-glow transition hover:border-gold/40 hover:text-white;
+  }
+}

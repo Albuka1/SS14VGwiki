@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стандартные Рабочие Процедуры · Игра · VanGuard</title>
+    <link rel="icon" type="image/png" href="../assets/images/wiki-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Стиль для тегов (аналогично странице технологий) */
+        .sop-tag {
+            display: inline-block;
+            background: rgba(222, 114, 25, 0.15);
+            color: var(--accent-orange);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            text-transform: lowercase;
+            border: 1px solid rgba(222, 114, 25, 0.3);
+        }
+
+        /* Стиль для заголовка внутри блока */
+        .rule-group h3 {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0;
+            color: var(--accent-orange);
+        }
+
+        /* Стиль для специальных тегов разных отделов */
+        .sop-tag.command {
+            background: rgba(241, 196, 15, 0.15); /* Золотой */
+            color: #f1c40f;
+            border-color: rgba(241, 196, 15, 0.3);
+        }
+        .sop-tag.security {
+            background: rgba(231, 76, 60, 0.15); /* Красный */
+            color: #e74c3c;
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+        .sop-tag.law {
+            background: rgba(52, 152, 219, 0.15); /* Синий */
+            color: #3498db; 
+            border-color: rgba(52, 152, 219, 0.3);
+        }
+        .sop-tag.science {
+            background: rgba(155, 89, 182, 0.15); /* Фиолетовый */
+            color: #9b59b6;
+            border-color: rgba(155, 89, 182, 0.3);
+        }
+        .sop-tag.engineering {
+            background: rgba(241, 196, 15, 0.15); /* Желтый/Оранжевый */
+            color: #f39c12;
+            border-color: rgba(241, 196, 15, 0.3);
+        }
+        .sop-tag.medical {
+            background: rgba(46, 204, 113, 0.15); /* Зеленый */
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.3);
+        }
+        .sop-tag.cargo {
+            background: rgba(136, 96, 58, 0.15); /* Коричневый */
+            color: #8B5A2B;
+            border-color: rgba(136, 96, 58, 0.3);
+        }
+        .sop-tag.service {
+            background: rgba(26, 188, 156, 0.15); /* Бирюзовый */
+            color: #1abc9c;
+            border-color: rgba(26, 188, 156, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="../index.html">VanGuard <span>SS14 · MEDIUM RP</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../rules.html"><i class="fas fa-gavel"></i> Правила</a></li>
+                    <li><a href="../lore/index.html"><i class="fas fa-globe"></i> Лор</a></li>
+                    <li><a href="../races/index.html"><i class="fas fa-users"></i> Виды</a></li>
+                    <li><a href="../corporations/index.html"><i class="fas fa-building"></i> Корпорации</a></li>
+                    <li><a href="../tech/index.html"><i class="fas fa-microchip"></i> Технологии</a></li>
+                    <li><a href="index.html"><i class="fas fa-dice-d6"></i> Игра</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../index.html">Главная</a> / <a href="index.html">Игра</a> / <span>Стандартные Рабочие Процедуры</span>
+            </div>
+
+            <div class="page-header">
+                <i class="fas fa-clipboard-list"></i>
+                <h1>Стандартные Рабочие Процедуры (СРП)</h1>
+            </div>
+
+            <div class="wiki-article">
+                <p>Стандартные Рабочие Процедуры (Standard Operating Procedures) - внутренние регламенты и инструкции, обязательные для сотрудников каждого отдела. Соблюдение СРП поддерживает безопасность, эффективность и порядок на объекте.</p>
+                
+                <div style="background: rgba(222, 114, 25, 0.1); border-left: 4px solid var(--accent-orange); padding: 1rem; margin-bottom: 2rem;">
+                    <p><i class="fas fa-exclamation-triangle" style="color: var(--accent-gold);"></i> <strong>Ведомственные СРП:</strong> Ниже представлен список разделов с краткими описаниями и тегами.</p>
+                </div>
+
+                <!-- СРП Командования -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-command.html" style="color: var(--accent-orange); text-decoration: none;">СРП Командования</a>
+                        <span class="sop-tag command">лидерство</span>
+                        <span class="sop-tag">управление</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности Капитана, Главы Персонала, Адъютанта, Офицера "Синий Щит", Представителя NT и Магистрата. Процедуры назначения ИО, отстранения, формирования Совета Глав и работы с ИИ.</p>
+                </div>
+                
+                <!-- СРП Службы Безопасности -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-security.html" style="color: var(--accent-orange); text-decoration: none;">СРП Службы Безопасности</a>
+                        <span class="sop-tag security">правопорядок</span>
+                        <span class="sop-tag">силовые</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности ГСБ, Смотрителя, Инструктора, Офицеров, Детектива, Бригмедика, Пилота и Кадета. Процедуры ареста, обыска, применения силы, УДО и казни.</p>
+                </div>
+                
+                <!-- СРП Юриспруденции -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-law.html" style="color: var(--accent-orange); text-decoration: none;">СРП Юриспруденции</a>
+                        <span class="sop-tag law">закон</span>
+                        <span class="sop-tag">адвокатура</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности Магистрата, Агента Внутренних Дел и Юриста. Процедуры рассмотрения жалоб, внутренних проверок, судебных разбирательств и адвокатской защиты.</p>
+                </div>
+                
+                <!-- СРП Исследований и Разработок -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-science.html" style="color: var(--accent-orange); text-decoration: none;">СРП Исследований и Разработок</a>
+                        <span class="sop-tag science">наука</span>
+                        <span class="sop-tag">аномалии</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности Научного руководителя, Старшего научного сотрудника, Научного сотрудника, Робототехника и Лаборанта. Процедуры работы с аномалиями, артефактами, Блюспейс добытчиком и признания разумности существ.</p>
+                </div>
+                
+                <!-- СРП Инженерии -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-engineering.html" style="color: var(--accent-orange); text-decoration: none;">СРП Инженерии</a>
+                        <span class="sop-tag engineering">техника</span>
+                        <span class="sop-tag">атмосфера</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности Старшего Инженера, Атмосферного Техника, Инженера и Технического Ассистента. Приоритеты ремонтных работ, работа с сингулярностью, теслой и аварийные процедуры.</p>
+                </div>
+                
+                <!-- СРП Медицины -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-medical.html" style="color: var(--accent-orange); text-decoration: none;">СРП Медицины</a>
+                        <span class="sop-tag medical">здоровье</span>
+                        <span class="sop-tag">химия</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности Главного Врача, Заведующего, Врача, Химика, Парамедика, Психолога и Интерна. Процедуры обращения с телами, триаж, клонирование и карантин.</p>
+                </div>
+                
+                <!-- СРП Снабжения -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-cargo.html" style="color: var(--accent-orange); text-decoration: none;">СРП Снабжения</a>
+                        <span class="sop-tag cargo">логистика</span>
+                        <span class="sop-tag">торговля</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности Квартирмейстера, Грузчика и Утилизатора. Процедуры заказа и доставки грузов, обработка специфических заказов, работа с артефактами и шаттлами.</p>
+                </div>
+                
+                <!-- СРП Сервисного обслуживания -->
+                <div class="rule-group" style="background: rgba(10, 20, 30, 0.5); border: 1px solid #2a4055; border-left: 4px solid var(--accent-orange); padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h3>
+                        <a href="sop-service.html" style="color: var(--accent-orange); text-decoration: none;">СРП Сервисного обслуживания</a>
+                        <span class="sop-tag service">быт</span>
+                        <span class="sop-tag">развлечения</span>
+                    </h3>
+                    <p style="margin-bottom: 0;">Обязанности Главы Персонала, Бармена, Повара, Ботаника, Уборщика, Сервисного работника, Библиотекаря, Музыканта, Клоуна, Мима, Священника, Репортёра, Боксёра и Зоотехника. Процедура ведения чёрных списков и особые правила для развлекательных профессий.</p>
+                </div>
+
+                <!-- Информационный блок о СРП -->
+                <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.5rem; margin-top: 2rem; border-left: 4px solid var(--accent-gold);">
+                    <h3 style="color: var(--accent-gold); margin-top: 0;"><i class="fas fa-book"></i> О соблюдении процедур</h3>
+                    <p style="margin-bottom: 0;">Стандартные Рабочие Процедуры разработаны корпорацией <a href="../corporations/nanotrasen.html">NanoTrasen</a> на основе многолетнего опыта и анализа инцидентов. Неукоснительное следование СРП - залог выживания в условиях Фронтира. Помните: игнорирование регламента может привести к дисциплинарным взысканиям, вплоть до расторжения контракта.</p>
+                </div>
+            </div>
+
+            <div class="breadcrumbs" style="margin-top: 2rem;">
+                <a href="../index.html">Главная</a> / <a href="index.html">Игра</a> / <span>Стандартные Рабочие Процедуры</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <!-- Здесь был пустой блок в оригинале, оставим как есть -->
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
