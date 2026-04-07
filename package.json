@@ -5,9 +5,10 @@
   "description": "VanGuard wiki rebuilt with React and Tailwind.",
   "scripts": {
     "sync:content": "node scripts/generate-content.mjs",
+    "check:content": "node scripts/check-content-links.mjs",
     "predev": "npm run sync:content",
     "dev": "vite",
-    "prebuild": "npm run sync:content",
+    "prebuild": "npm run sync:content && npm run check:content",
     "build": "vite build",
     "preview": "vite preview"
   },

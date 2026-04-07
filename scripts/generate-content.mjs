@@ -7,6 +7,11 @@ const sourceRoot = path.join(projectRoot, "legacy-source");
 const outputManifestFile = path.join(projectRoot, "src", "content", "generated", "site-content.js");
 const outputPagesDir = path.join(projectRoot, "src", "content", "generated", "pages");
 const sectionOrder = ["rules", "lore", "races", "corporations", "tech", "game"];
+const hrefAliasMap = new Map([
+  ["/lore#elizian-empire", "/races/human#elysian-empire"],
+  ["/lore#greys", "/races/human#greys"],
+  ["/game/corporate-law#kpb", "/game/corporate-law#oprs"],
+]);
 
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/");
@@ -80,7 +85,9 @@ function rewriteHref(currentFile, href) {
   }
 
   const route = toRoute(resolveTarget(currentFile, targetPath));
-  return hash ? `${route}#${hash}` : route;
+  const rewrittenHref = hash ? `${route}#${hash}` : route;
+
+  return hrefAliasMap.get(rewrittenHref) ?? rewrittenHref;
 }
 
 function rewriteSrc(currentFile, src) {
@@ -228,6 +235,8 @@ function sanitizeStyle(style) {
     "align-items",
     "justify-content",
     "flex-wrap",
+    "flex",
+    "flex-basis",
     "text-align",
     "font-size",
     "list-style",
@@ -235,6 +244,20 @@ function sanitizeStyle(style) {
     "text-decoration",
     "transition",
     "float",
+    "width",
+    "min-width",
+    "max-width",
+    "height",
+    "min-height",
+    "max-height",
+    "position",
+    "top",
+    "right",
+    "bottom",
+    "left",
+    "overflow",
+    "overflow-x",
+    "overflow-y",
   ]);
 
   const cleanedDeclarations = declarations.filter((declaration) => {
@@ -295,6 +318,14 @@ function decorateStyledElements($, contentRoot) {
 
     if (/grid-template-columns:\s*1fr 1fr/.test(style)) {
       classes.push("legacy-grid-2");
+    }
+
+    if (/grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(200px,\s*1fr\)\)/.test(style)) {
+      classes.push("legacy-grid-fluid-sm");
+    }
+
+    if (/grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(300px,\s*1fr\)\)/.test(style)) {
+      classes.push("legacy-grid-fluid-lg");
     }
 
     if (/display:\s*flex/.test(style)) {
@@ -389,6 +420,71 @@ function decorateStyledElements($, contentRoot) {
   });
 }
 
+function ensureAnchorAlias($, target, id) {
+  if (!target?.length || $(`#${id}`).length) {
+    return;
+  }
+
+  const firstTarget = target.first();
+  const existingId = firstTarget.attr("id");
+
+  if (!existingId) {
+    firstTarget.attr("id", id);
+    return;
+  }
+
+  firstTarget.before(`<span id="${id}"></span>`);
+}
+
+function findByText($, contentRoot, selector, needle) {
+  return contentRoot
+    .find(selector)
+    .filter((_, element) => textContent($(element).text()).includes(needle))
+    .first();
+}
+
+function addStructuralAnchors(relativeFilePath, $, contentRoot) {
+  contentRoot.find(".code-reference").each((_, element) => {
+    const code = textContent($(element).text());
+
+    if (!/^\d{3}$/u.test(code)) {
+      return;
+    }
+
+    ensureAnchorAlias($, $(element).closest("tr"), code);
+  });
+
+  switch (relativeFilePath) {
+    case "lore/index.html":
+      ensureAnchorAlias($, findByText($, contentRoot, "h3", "Фронтир"), "frontier");
+      break;
+    case "races/human.html":
+      ensureAnchorAlias($, findByText($, contentRoot, "h2", "Элизианская Империя"), "elysian-empire");
+      ensureAnchorAlias($, findByText($, contentRoot, "p", "Несмотря на хорошие отношения"), "greys");
+      break;
+    case "corporations/index.html":
+      ensureAnchorAlias($, findByText($, contentRoot, ".rule-group h3", "NanoTrasen"), "central-command");
+      break;
+    case "tech/energy.html":
+      ensureAnchorAlias($, findByText($, contentRoot, "h2", "Антиматерия"), "antimatter");
+      ensureAnchorAlias($, findByText($, contentRoot, "h2", "Генераторы гравитации"), "gravity");
+      ensureAnchorAlias($, findByText($, contentRoot, "h2", "Плазма"), "plasma");
+      ensureAnchorAlias($, findByText($, contentRoot, "h2", "Сингулярность"), "singularity");
+      break;
+    case "tech/ships.html":
+      ensureAnchorAlias($, findByText($, contentRoot, "h2", "МКК"), "mkk");
+      break;
+    case "game/sop-cargo.html":
+      ensureAnchorAlias($, findByText($, contentRoot, ".role-title", "Квартирмейстер"), "kvartirmeyster");
+      break;
+    case "game/corporate-law.html":
+      ensureAnchorAlias($, findByText($, contentRoot, "h2", "ОПРС"), "kpb");
+      break;
+    default:
+      break;
+  }
+}
+
 function sortPages(left, right) {
   const getWeight = (page) => {
     if (page.path === "/") {
@@ -467,6 +563,7 @@ async function main() {
     });
 
     decorateStyledElements($, contentRoot);
+    addStructuralAnchors(relativeFilePath, $, contentRoot);
 
     const route = toRoute(relativeFilePath);
     const pageHeader = $(".page-header").first();

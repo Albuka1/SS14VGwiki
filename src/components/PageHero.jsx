@@ -11,7 +11,7 @@ export function PageHero({ page }) {
       <div className="page-hero-grid pointer-events-none absolute inset-0" />
       <div className="page-hero-ambient pointer-events-none absolute inset-0" />
       <div className="page-hero-orb pointer-events-none absolute -right-10 top-0 h-40 w-40 rounded-full bg-white/5 blur-3xl" />
-      <div className="relative z-10 flex min-w-0 items-start gap-4">
+      <div className="relative z-10 flex min-w-0 flex-col items-start gap-4 sm:flex-row">
         <div className="page-hero-icon flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 text-xl text-ember shadow-[0_12px_30px_rgba(255,138,61,0.14)]">
           <i className={page.iconClass || meta.iconClass} aria-hidden="true" />
         </div>

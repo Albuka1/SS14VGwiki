@@ -6,7 +6,7 @@ function navigationClassName(isActive) {
   return [
     "site-nav-link inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm transition duration-300",
     isActive
-      ? "border-ember/70 bg-[linear-gradient(135deg,rgba(255,138,61,0.22),rgba(255,255,255,0.08))] text-white shadow-ember"
+      ? "border-amber-300/45 bg-[linear-gradient(135deg,rgba(255,166,102,0.14),rgba(255,255,255,0.07))] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_26px_rgba(255,166,102,0.12)]"
       : "border-white/10 bg-white/[0.03] text-steel hover:-translate-y-0.5 hover:border-gold/40 hover:bg-white/[0.08] hover:text-white",
   ].join(" ");
 }

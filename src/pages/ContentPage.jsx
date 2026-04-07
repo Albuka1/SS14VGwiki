@@ -20,12 +20,16 @@ export function ContentPage() {
   }
 
   return (
-    <div ref={containerRef} className="page-layout grid items-start gap-8 xl:grid-cols-[minmax(0,1fr)_20rem]">
+    <div
+      ref={containerRef}
+      className="page-layout grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(17rem,20rem)] xl:gap-8"
+    >
       <div className="min-w-0 space-y-5">
         <div data-reveal>
           <Breadcrumbs items={page.breadcrumbs} />
         </div>
         <PageHero page={page} />
+        <SectionSidebar page={page} mode="mobile" />
         <section
           className="page-surface min-w-0 overflow-hidden rounded-[2rem] border border-white/10 p-5 shadow-glow backdrop-blur-sm sm:p-8"
           data-reveal
@@ -47,7 +51,7 @@ export function ContentPage() {
           )}
         </section>
       </div>
-      <SectionSidebar page={page} />
+      <SectionSidebar page={page} mode="desktop" />
     </div>
   );
 }

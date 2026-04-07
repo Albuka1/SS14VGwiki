@@ -84,17 +84,27 @@
 
   html {
     scroll-behavior: smooth;
+    min-height: 100%;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(196, 165, 102, 0.42) rgba(255, 255, 255, 0.03);
   }
 
   body {
     @apply min-h-screen bg-void font-body text-ink antialiased;
     background-image:
-      radial-gradient(circle at top, rgba(255, 138, 61, 0.1), transparent 30%),
-      radial-gradient(circle at 18% 18%, rgba(82, 139, 255, 0.14), transparent 24%),
-      radial-gradient(circle at 78% 12%, rgba(255, 192, 105, 0.06), transparent 18%),
-      linear-gradient(180deg, #0a1322 0%, #060b15 40%, #04070f 100%);
+      radial-gradient(circle at 14% 16%, rgba(74, 124, 255, 0.18), transparent 26%),
+      radial-gradient(circle at 84% 12%, rgba(255, 157, 92, 0.08), transparent 20%),
+      radial-gradient(circle at 50% 100%, rgba(100, 122, 255, 0.08), transparent 34%),
+      linear-gradient(180deg, #09111d 0%, #060b14 42%, #05070d 100%);
     background-attachment: fixed;
-    overflow-x: hidden;
+    min-height: 100%;
+  }
+
+  #root {
+    min-height: 100%;
+    isolation: isolate;
   }
 
   body::before {
@@ -104,11 +114,12 @@
     pointer-events: none;
     z-index: -1;
     background:
-      radial-gradient(circle at 12% 24%, rgba(138, 183, 255, 0.18), transparent 18%),
-      radial-gradient(circle at 82% 10%, rgba(255, 164, 97, 0.14), transparent 16%),
-      radial-gradient(circle at 60% 76%, rgba(114, 132, 255, 0.1), transparent 20%);
-    filter: blur(34px);
-    animation: atmosphereFloat 24s ease-in-out infinite alternate;
+      radial-gradient(circle at 10% 22%, rgba(138, 183, 255, 0.18), transparent 20%),
+      radial-gradient(circle at 78% 14%, rgba(255, 175, 110, 0.12), transparent 18%),
+      radial-gradient(circle at 56% 76%, rgba(114, 132, 255, 0.08), transparent 22%);
+    filter: blur(42px);
+    opacity: 0.82;
+    animation: atmosphereFloat 28s ease-in-out infinite alternate;
   }
 
   body::after {
@@ -118,16 +129,16 @@
     pointer-events: none;
     z-index: -1;
     background:
-      linear-gradient(90deg, rgba(4, 7, 15, 0.84) 0%, transparent 16%, transparent 84%, rgba(4, 7, 15, 0.84) 100%),
-      linear-gradient(180deg, rgba(4, 7, 15, 0.1), transparent 18%, transparent 82%, rgba(4, 7, 15, 0.34)),
+      linear-gradient(180deg, rgba(4, 7, 15, 0.16), transparent 18%, transparent 84%, rgba(4, 7, 15, 0.28)),
+      radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.05), transparent 34%),
       repeating-linear-gradient(
         125deg,
-        rgba(255, 255, 255, 0.02) 0,
-        rgba(255, 255, 255, 0.02) 1px,
+        rgba(255, 255, 255, 0.014) 0,
+        rgba(255, 255, 255, 0.014) 1px,
         transparent 1px,
-        transparent 22px
+        transparent 24px
       );
-    opacity: 0.8;
+    opacity: 0.58;
   }
 
   a {
@@ -143,41 +154,36 @@
     color: white;
   }
 
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(244, 193, 93, 0.35) rgba(255, 255, 255, 0.04);
-  }
-
-  *::-webkit-scrollbar {
+  html::-webkit-scrollbar {
     width: 12px;
     height: 12px;
   }
 
-  *::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.04);
+  html::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.025);
   }
 
-  *::-webkit-scrollbar-thumb {
-    border: 3px solid rgba(5, 9, 21, 0.95);
+  html::-webkit-scrollbar-thumb {
+    border: 3px solid rgba(7, 11, 20, 0.92);
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 138, 61, 0.6), rgba(244, 193, 93, 0.32));
+    background: linear-gradient(180deg, rgba(222, 182, 108, 0.62), rgba(117, 138, 255, 0.22));
   }
 }
 
 @layer components {
   .app-backdrop {
     background:
-      radial-gradient(circle at 18% 16%, rgba(68, 124, 255, 0.18), transparent 24%),
-      radial-gradient(circle at 84% 10%, rgba(255, 138, 61, 0.12), transparent 18%),
-      radial-gradient(circle at 50% 90%, rgba(108, 128, 255, 0.1), transparent 32%),
-      linear-gradient(180deg, rgba(6, 10, 20, 0.2), rgba(6, 10, 20, 0.02));
-    animation: ambientDrift 24s ease-in-out infinite;
+      radial-gradient(circle at 16% 14%, rgba(72, 122, 255, 0.16), transparent 24%),
+      radial-gradient(circle at 82% 12%, rgba(255, 168, 99, 0.08), transparent 18%),
+      radial-gradient(circle at 50% 90%, rgba(108, 128, 255, 0.07), transparent 32%),
+      linear-gradient(180deg, rgba(8, 13, 24, 0.26), rgba(6, 10, 20, 0.04));
+    animation: ambientDrift 30s ease-in-out infinite;
   }
 
   .app-grid {
     background-image: theme(backgroundImage.hero-grid);
     background-size: 84px 84px;
-    opacity: 0.05;
+    opacity: 0.035;
     mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
   }
 
@@ -191,7 +197,7 @@
         transparent 1px,
         transparent 4px
       );
-    opacity: 0.22;
+    opacity: 0.12;
     mix-blend-mode: screen;
   }
 
@@ -200,8 +206,8 @@
     height: 28rem;
     border-radius: 999px;
     filter: blur(56px);
-    opacity: 0.6;
-    animation: ambientPulse 18s ease-in-out infinite;
+    opacity: 0.44;
+    animation: ambientPulse 22s ease-in-out infinite;
   }
 
   .app-orb-left {
@@ -211,27 +217,27 @@
   .app-orb-right {
     width: 22rem;
     height: 22rem;
-    background: radial-gradient(circle, rgba(255, 138, 61, 0.22), transparent 68%);
-    animation-duration: 16s;
+    background: radial-gradient(circle, rgba(255, 157, 92, 0.14), transparent 70%);
+    animation-duration: 18s;
   }
 
   .app-orb-bottom {
     width: 38rem;
     height: 22rem;
-    background: radial-gradient(circle, rgba(124, 138, 255, 0.12), transparent 68%);
-    animation-duration: 22s;
+    background: radial-gradient(circle, rgba(124, 138, 255, 0.08), transparent 72%);
+    animation-duration: 26s;
   }
 
   .app-beam {
-    opacity: 0.7;
+    opacity: 0.28;
   }
 
   .app-beam-left {
-    background: radial-gradient(circle at left, rgba(18, 58, 122, 0.26), transparent 70%);
+    background: radial-gradient(circle at left, rgba(28, 68, 138, 0.16), transparent 74%);
   }
 
   .app-beam-right {
-    background: radial-gradient(circle at right, rgba(255, 138, 61, 0.12), transparent 70%);
+    background: radial-gradient(circle at right, rgba(255, 157, 92, 0.08), transparent 78%);
   }
 
   .site-main {
@@ -248,10 +254,10 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 80%),
-      linear-gradient(90deg, rgba(82, 139, 255, 0.06), transparent 30%, transparent 70%, rgba(255, 138, 61, 0.08));
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 80%),
+      linear-gradient(90deg, rgba(82, 139, 255, 0.04), transparent 30%, transparent 72%, rgba(255, 157, 92, 0.05));
     pointer-events: none;
-    opacity: 0.9;
+    opacity: 0.75;
   }
 
   .site-header-inner {
@@ -287,7 +293,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(82, 139, 255, 0.06), transparent 25%, transparent 75%, rgba(255, 138, 61, 0.08));
+    background: linear-gradient(90deg, rgba(82, 139, 255, 0.045), transparent 22%, transparent 78%, rgba(255, 157, 92, 0.045));
     pointer-events: none;
   }
 
@@ -405,6 +411,56 @@
     text-wrap: pretty;
   }
 
+  .section-sidebar-mobile-panel {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 28%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+    backdrop-filter: blur(16px);
+  }
+
+  .section-sidebar-mobile-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 35%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .section-sidebar-mobile-trigger {
+    position: relative;
+    align-items: center;
+  }
+
+  .section-sidebar-mobile-trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .section-sidebar-mobile-trigger::marker {
+    content: "";
+  }
+
+  .section-sidebar-mobile-trigger::after {
+    content: "\f078";
+    font-family: "Font Awesome 7 Free";
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: rgba(236, 240, 255, 0.72);
+    transition: transform 220ms ease, color 220ms ease;
+  }
+
+  .section-sidebar-mobile-panel[open] .section-sidebar-mobile-trigger::after {
+    transform: rotate(180deg);
+    color: rgba(255, 202, 118, 0.92);
+  }
+
+  .section-sidebar-mobile-panel[open] .section-sidebar-mobile-trigger {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
   [data-reveal] {
     opacity: 0;
     transform: translate3d(0, 1.35rem, 0) scale(0.985);
@@ -503,6 +559,9 @@
 
   .content-prose table {
     @apply my-6 block w-full overflow-x-auto overflow-y-hidden rounded-2xl border border-white/10 bg-black/10 text-sm shadow-glow;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
   }
 
   .content-prose thead {
@@ -602,7 +661,11 @@
   }
 
   .content-prose .infobox {
-    @apply float-none mb-6 w-full overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] shadow-glow xl:float-right xl:ml-6 xl:max-w-sm;
+    @apply mb-6 w-full max-w-none overflow-hidden rounded-[1.75rem] border border-white/10 shadow-glow;
+    background:
+      radial-gradient(circle at top right, rgba(255, 181, 110, 0.08), transparent 30%),
+      radial-gradient(circle at left center, rgba(83, 143, 255, 0.1), transparent 28%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
   }
 
   .content-prose .infobox-title {
@@ -610,11 +673,11 @@
   }
 
   .content-prose .infobox-row {
-    @apply border-t border-white/10 px-5 py-3 text-sm text-ink;
+    @apply grid gap-1 border-t border-white/10 px-5 py-3 text-sm text-ink sm:grid-cols-[11rem_minmax(0,1fr)] sm:items-start sm:gap-3;
   }
 
   .content-prose .infobox-label {
-    @apply mr-2 font-semibold text-gold;
+    @apply mr-0 block text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold;
   }
 
   .content-prose .article-card {
@@ -673,10 +736,7 @@
   .content-prose .game-tag,
   .content-prose .code-badge,
   .content-prose .severity-tag,
-  .content-prose .stamp,
-  .content-prose .allowed,
-  .content-prose .approved,
-  .content-prose .forbidden {
+  .content-prose .stamp {
     @apply inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em];
   }
 
@@ -709,12 +769,11 @@
     @apply border-gold/30 bg-gold/10 text-gold;
   }
 
-  .content-prose .allowed,
-  .content-prose .approved {
+  .content-prose .stamp.approved {
     @apply border-emerald-400/30 bg-emerald-400/10 text-emerald-300;
   }
 
-  .content-prose .forbidden {
+  .content-prose .stamp.forbidden {
     @apply border-rose-400/30 bg-rose-400/10 text-rose-300;
   }
 
@@ -772,14 +831,24 @@
   .content-prose .command-chain,
   .content-prose .priority-list,
   .content-prose .duty-list {
-    @apply m-0 space-y-3 p-0;
+    @apply m-0 grid gap-3 p-0;
     list-style: none;
+  }
+
+  .content-prose .command-chain {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   }
 
   .content-prose .chain-item,
   .content-prose .priority-list li,
   .content-prose .duty-list li {
     @apply rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3;
+  }
+
+  .content-prose .chain-item {
+    @apply grid items-start gap-x-3 gap-y-2;
+    grid-template-columns: auto minmax(0, 1fr);
+    min-height: 100%;
   }
 
   .content-prose .duty-list.allowed li {
@@ -810,7 +879,8 @@
   }
 
   .content-prose .chain-note {
-    @apply mt-2 text-sm text-steel;
+    @apply text-sm text-steel;
+    grid-column: 2 / -1;
   }
 
   .content-prose .force-table,
@@ -819,6 +889,18 @@
   .content-prose .command-table,
   .content-prose .spec-order-table {
     @apply block w-full max-w-full overflow-x-auto overflow-y-hidden rounded-[1.5rem] border border-white/10 bg-black/10;
+  }
+
+  .content-prose :is(.force-table, .law-table, .blacklist-table, .command-table, .spec-order-table) th,
+  .content-prose :is(.force-table, .law-table, .blacklist-table, .command-table, .spec-order-table) td {
+    min-width: 11rem;
+  }
+
+  .content-prose .law-table th:first-child,
+  .content-prose .law-table td:first-child,
+  .content-prose .command-table th:first-child,
+  .content-prose .command-table td:first-child {
+    min-width: 13rem;
   }
 
   .content-prose .role-section {
@@ -830,7 +912,7 @@
   }
 
   .content-prose .role-title {
-    @apply mb-5 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3;
+    @apply mb-5 flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3;
   }
 
   .content-prose .role-title i {
@@ -861,6 +943,14 @@
     @apply gap-4 md:grid-cols-2;
   }
 
+  .content-prose .legacy-grid-fluid-sm {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr));
+  }
+
+  .content-prose .legacy-grid-fluid-lg {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  }
+
   .content-prose .legacy-flex {
     @apply flex;
     min-width: 0;
@@ -878,9 +968,14 @@
     @apply flex-wrap;
   }
 
+  .content-prose .legacy-flex.legacy-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    align-items: stretch;
+  }
+
   .content-prose .legacy-flex.legacy-wrap > * {
-    flex: 1 1 18rem;
-    min-width: min(100%, 18rem);
+    min-width: 0;
   }
 
   .content-prose .legacy-gap {
@@ -935,6 +1030,14 @@
     @apply list-none pl-0;
   }
 
+  .content-prose .legacy-list-plain li {
+    @apply flex items-start gap-3;
+  }
+
+  .content-prose .legacy-list-plain li > i:first-child {
+    @apply mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center;
+  }
+
   .content-prose .legacy-list-disc {
     @apply list-disc pl-8;
   }
@@ -951,8 +1054,19 @@
     @apply space-y-8;
   }
 
+  .content-prose.content-home {
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
+  }
+
+  .content-prose.content-home > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
   .content-prose.content-home .page-header {
-    @apply mb-4 border-b border-white/10 pb-6;
+    @apply border-b border-white/10 pb-6;
   }
 
   .content-prose.content-home .page-header h1 {
@@ -975,9 +1089,9 @@
   .content-prose .about-panel {
     @apply rounded-[2rem] border border-white/10 px-7 py-8 shadow-glow;
     background:
-      radial-gradient(circle at top left, rgba(83, 143, 255, 0.14), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(255, 138, 61, 0.08), transparent 30%),
-      linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      radial-gradient(circle at top left, rgba(83, 143, 255, 0.12), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(255, 157, 92, 0.06), transparent 32%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.018));
   }
 
   .content-prose .home-hero {
@@ -999,12 +1113,12 @@
   }
 
   .content-prose .home-command-deck {
-    @apply relative grid gap-5 overflow-hidden rounded-[2rem] border border-white/10 p-6 shadow-[0_20px_60px_rgba(5,9,21,0.42)] transition duration-300 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.85fr)];
+    @apply relative grid gap-6 overflow-hidden rounded-[2rem] border border-white/10 p-6 shadow-[0_20px_60px_rgba(5,9,21,0.42)] transition duration-300 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.85fr)];
     background:
-      radial-gradient(circle at top right, rgba(255, 138, 61, 0.14), transparent 30%),
-      radial-gradient(circle at left center, rgba(83, 143, 255, 0.16), transparent 28%),
+      radial-gradient(circle at top right, rgba(255, 157, 92, 0.1), transparent 32%),
+      radial-gradient(circle at left center, rgba(83, 143, 255, 0.14), transparent 28%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 35%),
-      linear-gradient(135deg, rgba(17, 25, 42, 0.96), rgba(10, 15, 28, 0.9));
+      linear-gradient(135deg, rgba(16, 23, 40, 0.95), rgba(9, 14, 26, 0.9));
     isolation: isolate;
   }
 
@@ -1024,7 +1138,7 @@
     width: 22rem;
     height: 22rem;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(255, 186, 115, 0.14), transparent 68%);
+    background: radial-gradient(circle, rgba(255, 186, 115, 0.1), transparent 70%);
     filter: blur(28px);
     animation: ambientPulse 18s ease-in-out infinite;
     pointer-events: none;
@@ -1128,8 +1242,8 @@
   .content-prose .ops-ticker {
     @apply relative overflow-hidden rounded-[1.5rem] border border-white/10 px-4 py-4;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02)),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.018));
   }
 
   .content-prose .ops-ticker::before {
@@ -1153,7 +1267,12 @@
   }
 
   .content-prose .article-showcase {
-    @apply grid gap-4 lg:grid-cols-3;
+    @apply grid gap-5 lg:grid-cols-3;
+  }
+
+  .content-prose.content-home .article-showcase,
+  .content-prose.content-home .card-grid {
+    gap: 1.75rem;
   }
 
   .content-prose .showcase-card {
@@ -1162,6 +1281,11 @@
       linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03)),
       linear-gradient(145deg, rgba(255, 255, 255, 0.02), transparent 65%);
     isolation: isolate;
+  }
+
+  .content-prose .showcase-card,
+  .content-prose .card {
+    height: 100%;
   }
 
   .content-prose .showcase-card::before {
@@ -1188,7 +1312,7 @@
 
   .content-prose .card-grid,
   .content-prose .section-grid {
-    @apply grid gap-4 md:grid-cols-2 xl:grid-cols-3;
+    @apply grid gap-5 md:grid-cols-2 xl:grid-cols-3;
   }
 
   .content-prose .card {
@@ -1347,6 +1471,31 @@
     @apply text-3xl;
   }
 
+  .content-prose .infobox-row {
+    @apply gap-2;
+  }
+
+  .content-prose .chain-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .content-prose .chain-number {
+    @apply mr-0;
+  }
+
+  .content-prose .chain-note {
+    grid-column: 1 / -1;
+  }
+
+  .content-prose .role-title {
+    @apply items-start;
+  }
+
+  .content-prose :is(.force-table, .law-table, .blacklist-table, .command-table, .spec-order-table) th,
+  .content-prose :is(.force-table, .law-table, .blacklist-table, .command-table, .spec-order-table) td {
+    min-width: 9rem;
+  }
+
   .content-prose.content-home .page-header h1 {
     @apply text-4xl;
   }
@@ -1355,6 +1504,11 @@
   .content-prose .about-panel,
   .content-prose .home-command-deck {
     @apply px-5 py-6;
+  }
+
+  .content-prose.content-home .article-showcase,
+  .content-prose.content-home .card-grid {
+    gap: 1.25rem;
   }
 
   .footer-status {

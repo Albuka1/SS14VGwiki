@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 function DockItem({ item }) {
   const location = useLocation();
   const isAnchor = item.href.startsWith("#");
+  const isAbsoluteRoute = item.href.startsWith("/");
 
   if (isAnchor) {
     return (
@@ -14,7 +15,11 @@ function DockItem({ item }) {
   }
 
   return (
-    <Link className="dock-link" to={`${location.pathname}${item.href}`} title={item.label}>
+    <Link
+      className="dock-link"
+      to={isAbsoluteRoute ? item.href : `${location.pathname}${item.href}`}
+      title={item.label}
+    >
       <i className={item.iconClass} aria-hidden="true" />
       <span className="sr-only">{item.label}</span>
     </Link>

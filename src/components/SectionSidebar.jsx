@@ -1,24 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { getSectionLandingPage, getSectionPages } from "@/lib/pages";
 
-export function SectionSidebar({ page }) {
-  if (!page.section) {
-    return null;
-  }
-
-  const landingPage = getSectionLandingPage(page.section);
-  const entries = getSectionPages(page.section).filter((entry) => entry.routeType === "article");
-  const totalEntries = entries.length + (landingPage ? 1 : 0);
-
-  if (!landingPage && entries.length === 0) {
-    return null;
-  }
-
+function SectionSidebarBody({ entries, landingPage, totalEntries }) {
   return (
-    <aside
-      className="section-sidebar sticky top-28 hidden h-fit min-w-0 self-start rounded-[1.75rem] border border-white/10 p-5 shadow-glow xl:block"
-      data-reveal
-    >
+    <>
       <div className="flex items-center justify-between gap-3">
         <p className="font-display text-xs uppercase tracking-[0.28em] text-gold/80">В разделе</p>
         <span className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-steel">
@@ -40,7 +25,7 @@ export function SectionSidebar({ page }) {
           {landingPage.heading}
         </NavLink>
       ) : null}
-      <div className="mt-3 space-y-2">
+      <div className="section-sidebar-list mt-3 space-y-2">
         {entries.map((entry) => (
           <NavLink
             className={({ isActive }) =>
@@ -58,6 +43,54 @@ export function SectionSidebar({ page }) {
           </NavLink>
         ))}
       </div>
-    </aside>
+    </>
+  );
+}
+
+export function SectionSidebar({ page, mode = "both" }) {
+  if (!page.section) {
+    return null;
+  }
+
+  const landingPage = getSectionLandingPage(page.section);
+  const entries = getSectionPages(page.section).filter((entry) => entry.routeType === "article");
+  const totalEntries = entries.length + (landingPage ? 1 : 0);
+
+  if (!landingPage && entries.length === 0) {
+    return null;
+  }
+
+  const showMobile = mode === "both" || mode === "mobile";
+  const showDesktop = mode === "both" || mode === "desktop";
+
+  return (
+    <>
+      {showMobile ? (
+        <div className="section-sidebar-mobile xl:hidden" data-reveal>
+          <details className="section-sidebar-mobile-panel rounded-[1.5rem] border border-white/10 bg-white/[0.04] shadow-glow">
+            <summary className="section-sidebar-mobile-trigger flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4">
+              <div className="min-w-0">
+                <p className="font-display text-[0.7rem] uppercase tracking-[0.26em] text-gold/80">Навигация</p>
+                <p className="mt-1 text-sm text-white">Раздел {landingPage?.heading ?? page.heading}</p>
+              </div>
+              <span className="inline-flex shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-steel">
+                {totalEntries} стр.
+              </span>
+            </summary>
+            <div className="px-4 pb-4 pt-1">
+              <SectionSidebarBody entries={entries} landingPage={landingPage} totalEntries={totalEntries} />
+            </div>
+          </details>
+        </div>
+      ) : null}
+      {showDesktop ? (
+        <aside
+          className="section-sidebar sticky top-28 hidden h-fit min-w-0 self-start rounded-[1.75rem] border border-white/10 p-5 shadow-glow xl:block"
+          data-reveal
+        >
+          <SectionSidebarBody entries={entries} landingPage={landingPage} totalEntries={totalEntries} />
+        </aside>
+      ) : null}
+    </>
   );
 }

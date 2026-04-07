@@ -32,18 +32,20 @@ function ScrollManager() {
 
 export function AppShell({ children }) {
   return (
-    <div className="app-shell relative min-h-screen overflow-x-hidden">
-      <div className="app-backdrop pointer-events-none absolute inset-0 -z-20" />
-      <div className="app-grid pointer-events-none absolute inset-0 -z-20" />
-      <div className="app-noise pointer-events-none absolute inset-0 -z-20" />
-      <div className="app-orb app-orb-left pointer-events-none absolute -left-[12rem] top-24 -z-10" />
-      <div className="app-orb app-orb-right pointer-events-none absolute -right-[8rem] top-16 -z-10" />
-      <div className="app-orb app-orb-bottom pointer-events-none absolute bottom-[-12rem] left-1/2 -z-10 -translate-x-1/2" />
-      <div className="app-beam app-beam-left pointer-events-none absolute inset-y-0 left-0 -z-10 w-[30vw]" />
-      <div className="app-beam app-beam-right pointer-events-none absolute inset-y-0 right-0 -z-10 w-[24vw]" />
+    <div className="app-shell relative min-h-screen">
+      <div aria-hidden="true" className="app-scene pointer-events-none absolute inset-0 -z-20 overflow-hidden">
+        <div className="app-backdrop absolute inset-0" />
+        <div className="app-grid absolute inset-0" />
+        <div className="app-noise absolute inset-0" />
+        <div className="app-orb app-orb-left absolute -left-[10rem] top-24 -z-10" />
+        <div className="app-orb app-orb-right absolute -right-[6rem] top-20 -z-10" />
+        <div className="app-orb app-orb-bottom absolute bottom-[-12rem] left-1/2 -z-10 -translate-x-1/2" />
+        <div className="app-beam app-beam-left absolute inset-y-0 left-0 -z-10 w-[18vw]" />
+        <div className="app-beam app-beam-right absolute inset-y-0 right-0 -z-10 w-[12vw]" />
+      </div>
       <ScrollManager />
       <SiteHeader />
-      <main className="site-main mx-auto flex min-w-0 w-full max-w-[1520px] flex-1 flex-col px-4 pb-20 pt-8 sm:px-6 lg:px-8">
+      <main className="site-main mx-auto flex min-w-0 w-full max-w-[1480px] flex-1 flex-col px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8">
         {children}
       </main>
       <SiteFooter />
