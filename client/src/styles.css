@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Chakra Petch", "Space Grotesk", sans-serif;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 24%),
+    radial-gradient(circle at bottom, rgba(59, 130, 246, 0.16), transparent 38%),
+    linear-gradient(180deg, #020617 0%, #07111f 34%, #04131d 100%);
+  color: #dbeafe;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 22%, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 40% 76%, rgba(255, 255, 255, 0.75) 0 1px, transparent 1.5px),
+    linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.045) 1px, transparent 1px);
+  background-size: auto, auto, auto, 40px 40px, 40px 40px;
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 10vh;
+  right: -12rem;
+  height: 28rem;
+  width: 28rem;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.5), transparent 18%),
+    radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.2), transparent 62%),
+    linear-gradient(135deg, rgba(15, 118, 110, 0.42), rgba(30, 41, 59, 0.08));
+  box-shadow:
+    0 0 120px rgba(34, 211, 238, 0.22),
+    inset -40px -40px 60px rgba(2, 6, 23, 0.55);
+  filter: blur(6px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(34, 211, 238, 0.9);
+  outline-offset: 3px;
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-panel {
+    @apply relative overflow-hidden rounded-[32px] border border-cyan-300/15 bg-slate-950/68 shadow-[0_28px_100px_rgba(2,6,23,0.55)] backdrop-blur-xl;
+  }
+
+  .glass-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(34, 211, 238, 0.12), transparent 32%),
+      linear-gradient(180deg, rgba(15, 23, 42, 0.06), transparent 40%);
+    pointer-events: none;
+  }
+
+  .data-card {
+    @apply relative overflow-hidden rounded-[28px] border border-cyan-300/12 bg-slate-950/74 p-6 shadow-[0_20px_60px_rgba(2,6,23,0.45)];
+  }
+
+  .data-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 36%);
+    pointer-events: none;
+  }
+
+  .display-title {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+  }
+
+  .section-kicker {
+    @apply text-[0.7rem] font-medium uppercase tracking-[0.42em] text-cyan-100/65;
+  }
+
+  .soft-input {
+    @apply w-full rounded-[20px] border border-cyan-300/16 bg-slate-900/75 px-4 py-3 text-sm text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan-300/55 focus:ring-4 focus:ring-cyan-400/10;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center rounded-[20px] bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_40px_rgba(34,211,238,0.22)] transition hover:-translate-y-0.5 hover:bg-cyan-200 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .secondary-button {
+    @apply inline-flex items-center justify-center rounded-[20px] border border-cyan-300/18 bg-slate-900/72 px-5 py-3 text-sm font-medium text-slate-100 transition hover:-translate-y-0.5 hover:border-cyan-300/32 hover:bg-slate-900;
+  }
+
+  .danger-button {
+    @apply inline-flex items-center justify-center rounded-[18px] border border-rose-400/24 bg-rose-500/10 px-4 py-2.5 text-sm font-medium text-rose-200 transition hover:bg-rose-500/16;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-cyan-300/18 bg-slate-900/72 px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.32em] text-cyan-100/70;
+  }
+
+  .nav-tab {
+    @apply inline-flex items-center justify-center rounded-full border border-transparent px-4 py-2.5 text-xs font-medium uppercase tracking-[0.28em] text-slate-300/78 transition hover:border-cyan-300/18 hover:bg-slate-900/70 hover:text-cyan-100;
+  }
+
+  .nav-tab-active {
+    @apply border-cyan-300/24 bg-cyan-400/12 text-cyan-100 shadow-[0_0_30px_rgba(34,211,238,0.12)];
+  }
+
+  .icon-button {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-[18px] border border-cyan-300/20 bg-slate-900/74 text-cyan-100 transition hover:-translate-y-0.5 hover:border-cyan-300/36 hover:bg-slate-900;
+  }
+
+  .station-divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-cyan-300/18 to-transparent;
+  }
+}
+
+.prose-content {
+  color: rgba(226, 232, 240, 0.92);
+  font-size: 1.02rem;
+  line-height: 1.95;
+}
+
+.prose-content h1,
+.prose-content h2,
+.prose-content h3 {
+  color: #f8fafc;
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-top: 2.4rem;
+}
+
+.prose-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+}
+
+.prose-content h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.prose-content h3 {
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+}
+
+.prose-content p,
+.prose-content ul,
+.prose-content ol,
+.prose-content blockquote {
+  margin: 1.2rem 0;
+}
+
+.prose-content ul,
+.prose-content ol {
+  padding-left: 1.5rem;
+}
+
+.prose-content ul {
+  list-style: disc;
+}
+
+.prose-content ol {
+  list-style: decimal;
+}
+
+.prose-content a {
+  color: #67e8f9;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.prose-content blockquote {
+  border-left: 4px solid rgba(34, 211, 238, 0.8);
+  padding-left: 1rem;
+  color: rgba(191, 219, 254, 0.88);
+  font-style: italic;
+}
+
+.prose-content img {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  margin: 2rem 0;
+}
+
+.editor-surface {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.9), rgba(3, 7, 18, 0.74)),
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 34%);
+}
+
+.editor-surface .ql-toolbar.ql-snow {
+  border: 0;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.12);
+  padding: 1rem 1rem 0.9rem;
+}
+
+.editor-surface .ql-container.ql-snow {
+  border: 0;
+}
+
+.editor-surface .ql-editor {
+  min-height: 23rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+}
+
+.editor-surface .ql-editor.ql-blank::before {
+  color: rgba(148, 163, 184, 0.88);
+  font-style: normal;
+}
+
+.editor-surface .ql-picker {
+  color: #cbd5e1;
+}
+
+.editor-surface .ql-snow .ql-stroke {
+  stroke: #cbd5e1;
+}
+
+.editor-surface .ql-snow .ql-fill {
+  fill: #cbd5e1;
+}
+
+.editor-surface .ql-snow .ql-picker-options {
+  background: rgba(2, 6, 23, 0.96);
+  border-color: rgba(34, 211, 238, 0.18);
+}
+
+.editor-surface .ql-snow .ql-picker.ql-expanded .ql-picker-label,
+.editor-surface .ql-snow .ql-picker-label:hover,
+.editor-surface .ql-snow .ql-picker-item:hover,
+.editor-surface .ql-snow button:hover,
+.editor-surface .ql-snow button:focus {
+  color: #67e8f9;
+}
+
+.editor-surface .ql-snow button:hover .ql-stroke,
+.editor-surface .ql-snow button:focus .ql-stroke,
+.editor-surface .ql-snow .ql-picker-label:hover .ql-stroke,
+.editor-surface .ql-snow .ql-picker-item:hover .ql-stroke {
+  stroke: #67e8f9;
+}
+
+.editor-surface .ql-snow button:hover .ql-fill,
+.editor-surface .ql-snow button:focus .ql-fill,
+.editor-surface .ql-snow .ql-picker-label:hover .ql-fill,
+.editor-surface .ql-snow .ql-picker-item:hover .ql-fill {
+  fill: #67e8f9;
+}
+
+@media (max-width: 640px) {
+  body::after {
+    right: -16rem;
+    top: 2rem;
+    height: 22rem;
+    width: 22rem;
+  }
+}
